@@ -5,7 +5,7 @@ export default class SimpleButtonComponent extends Component{
 
     render() {
         return (
-            <TouchableWithoutFeedback>
+            <TouchableWithoutFeedback onPress={this.props.onPress}>
                 <View style={styles.container}>
                     <Text>{this.props.text}</Text>
                 </View>

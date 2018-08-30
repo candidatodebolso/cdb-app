@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Dimensions, Image, ScrollView, StyleSheet, View} from 'react-native';
+import {Dimensions, Image, StyleSheet, View} from 'react-native';
 import InputTextComponent from "../components/InputTextComponent";
 import PrimaryButtonComponent from "../components/PrimaryButtonComponent";
 import SimpleButtonComponent from "../components/SimpleButtonComponent";
@@ -18,20 +18,17 @@ export default class LoginScreen extends Component {
         return (
             <View style={styles.container}>
                 <Image style={styles.logo} source={require('./../resources/images/logo_vertical.png')}/>
-                    <InputTextComponent placeholder="Usuário"/>
-                    <InputTextComponent placeholder="Senha" secureTextEntry={true}/>
-                    <PrimaryButtonComponent text="Entrar"/>
-                    <SimpleButtonComponent text="ou clique aqui para se cadastrar"/>
+                <InputTextComponent placeholder="Usuário" autoCapitalize="none"/>
+                <InputTextComponent placeholder="Senha" secureTextEntry={true}/>
+                <PrimaryButtonComponent text="Entrar"/>
+                <SimpleButtonComponent onPress={() => this.props.navigation.navigate('SignIn')}
+                                       text="ou clique aqui para se cadastrar"/>
             </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    scroll: {
-        flex: 1,
-        backgroundColor: 'white'
-    },
     container: {
         backgroundColor: 'white',
         flexDirection: 'column',
